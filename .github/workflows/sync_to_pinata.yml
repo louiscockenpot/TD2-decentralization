@@ -14,7 +14,7 @@ jobs:
       with:
         pin-name: 'text.txt'
         path: 'text.txt'
-        pinata-api-key: ${{ secrets.PINATA_API_KEY }}
-        pinata-secret-api-key: ${{ secrets.PINATA_API_SECRET }}
+        pinata-api-key: '7f5de41c6fdc5e96567d'
+        pinata-secret-api-key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiI1ZDM5NDFmYS03Yjk0LTQxNjAtOGVkMi1mMzBkZWY0NjAyYmIiLCJlbWFpbCI6ImxvdWlzY29ja2VucG90MjdAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBpbl9wb2xpY3kiOnsicmVnaW9ucyI6W3siaWQiOiJGUkExIiwiZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjF9LHsiaWQiOiJOWUMxIiwiZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjF9XSwidmVyc2lvbiI6MX0sIm1mYV9lbmFibGVkIjpmYWxzZSwic3RhdHVzIjoiQUNUSVZFIn0sImF1dGhlbnRpY2F0aW9uVHlwZSI6InNjb3BlZEtleSIsInNjb3BlZEtleUtleSI6IjdmNWRlNDFjNmZkYzVlOTY1NjdkIiwic2NvcGVkS2V5U2VjcmV0IjoiMTUzMjYxMmMzMmQxMmJlZTNjYmE3YjAwNGQzZGFhMGRiOGY0OTM4MzA2ZDNmMzRiNWQ1NGNiNWUxY2EzNjIxOSIsImlhdCI6MTcwNzI0MTczNH0.OzJEA0kUwAmpHE1XkMoN2UWnbQCB47oc2zGnOfzB5Nk'
         verbose: true
         remove-old: false
