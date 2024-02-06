@@ -6,15 +6,18 @@ on:
       - 'text.txt'
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+    deploy:
+        runs-on: ubuntu-latest
 
-    steps:   
-    - uses: anantaramdas/ipfs-pinata-deploy-action@v1.6.4
-      with:
-        pin-name: 'text.txt'
-        path: 'text.txt'
-        pinata-api-key: '7f5de41c6fdc5e96567d'
-        pinata-secret-api-key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiI1ZDM5NDFmYS03Yjk0LTQxNjAtOGVkMi1mMzBkZWY0NjAyYmIiLCJlbWFpbCI6ImxvdWlzY29ja2VucG90MjdAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBpbl9wb2xpY3kiOnsicmVnaW9ucyI6W3siaWQiOiJGUkExIiwiZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjF9LHsiaWQiOiJOWUMxIiwiZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjF9XSwidmVyc2lvbiI6MX0sIm1mYV9lbmFibGVkIjpmYWxzZSwic3RhdHVzIjoiQUNUSVZFIn0sImF1dGhlbnRpY2F0aW9uVHlwZSI6InNjb3BlZEtleSIsInNjb3BlZEtleUtleSI6IjdmNWRlNDFjNmZkYzVlOTY1NjdkIiwic2NvcGVkS2V5U2VjcmV0IjoiMTUzMjYxMmMzMmQxMmJlZTNjYmE3YjAwNGQzZGFhMGRiOGY0OTM4MzA2ZDNmMzRiNWQ1NGNiNWUxY2EzNjIxOSIsImlhdCI6MTcwNzI0MTczNH0.OzJEA0kUwAmpHE1XkMoN2UWnbQCB47oc2zGnOfzB5Nk'
-        verbose: true
-        remove-old: false
+        steps:
+        - uses: actions/checkout@v2
+
+        - name: Upload to Pinata
+          env:
+            PINATA_API_KEY: ${{ secrets.PINATA_API_KEY }}
+            PINATA_API_SECRET: ${{ secrets.PINATA_API_SECRET }}
+          run: |
+            curl -X POST https://api.pinata.cloud/pinning/pinFileToIPFS \
+            -H "pinata_api_key: $PINATA_API_KEY" \
+            -H "pinata_secret_api_key: $PINATA_API_SECRET" \
+            -F file=@text.txt
